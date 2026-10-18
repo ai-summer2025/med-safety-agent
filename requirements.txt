@@ -1,9 +1,0 @@
-# Drug Safety Agent — Python dependencies
-# All core functionality uses Python stdlib only.
-# No paid API keys required.
-
-# Testing
-pytest>=7.0.0
-
-# Optional: for prettier CLI output (not required)
-# rich>=13.0.0
