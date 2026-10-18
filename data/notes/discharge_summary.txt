@@ -1,0 +1,13 @@
+DISCHARGE SUMMARY (synthetic)
+82F admitted with CHF exacerbation. eGFR 31 on discharge.
+
+Hospital course: Diuresed with IV furosemide, transitioned to Lasix 40 mg PO daily.
+Naproxen 500 mg BID was stopped on admission given AKI. Started metoprolol
+succinate 25 mg daily. Continue home warfarin 5 mg every evening, INR 2.4.
+
+Discharge medications:
+- Lasix 40 mg PO daily
+- Metoprolol succinate 25 mg PO daily
+- Warfarin 5 mg PO qPM
+- Diphenhydramine 25 mg PO qHS PRN sleep
+- Gabapentin 300 mg PO TID
