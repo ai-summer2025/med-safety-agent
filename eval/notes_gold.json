@@ -1,0 +1,202 @@
+{
+ "N01": [
+  {
+   "name": "metoprolol",
+   "dose": 50,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "lisinopril",
+   "dose": 10,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "atorvastatin",
+   "dose": 40,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "aspirin",
+   "dose": 81,
+   "unit": "mg",
+   "doses_per_day": 1
+  }
+ ],
+ "N02": [
+  {
+   "name": "apixaban",
+   "dose": 5,
+   "unit": "mg",
+   "doses_per_day": 2
+  },
+  {
+   "name": "furosemide",
+   "dose": 40,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "levothyroxine",
+   "dose": 88,
+   "unit": "mcg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "acetaminophen",
+   "dose": 650,
+   "unit": "mg",
+   "doses_per_day": null
+  }
+ ],
+ "N03": [
+  {
+   "name": "metformin",
+   "dose": 1000,
+   "unit": "mg",
+   "doses_per_day": 2
+  },
+  {
+   "name": "gabapentin",
+   "dose": 300,
+   "unit": "mg",
+   "doses_per_day": 3
+  },
+  {
+   "name": "pantoprazole",
+   "dose": 40,
+   "unit": "mg",
+   "doses_per_day": 1
+  }
+ ],
+ "N04": [
+  {
+   "name": "warfarin",
+   "dose": 5,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "amiodarone",
+   "dose": 200,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "furosemide",
+   "dose": 20,
+   "unit": "mg",
+   "doses_per_day": 2
+  }
+ ],
+ "N05": [
+  {
+   "name": "sertraline",
+   "dose": 50,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "tramadol",
+   "dose": 50,
+   "unit": "mg",
+   "doses_per_day": null
+  }
+ ],
+ "N06": [
+  {
+   "name": "oxybutynin",
+   "dose": 5,
+   "unit": "mg",
+   "doses_per_day": 2
+  },
+  {
+   "name": "diphenhydramine",
+   "dose": 25,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "donepezil",
+   "dose": 10,
+   "unit": "mg",
+   "doses_per_day": 1
+  }
+ ],
+ "N07": [
+  {
+   "name": "insulin glargine",
+   "dose": 20,
+   "unit": "units",
+   "doses_per_day": 1
+  },
+  {
+   "name": "metformin",
+   "dose": 500,
+   "unit": "mg",
+   "doses_per_day": 2
+  },
+  {
+   "name": "losartan",
+   "dose": 50,
+   "unit": "mg",
+   "doses_per_day": 1
+  }
+ ],
+ "N08": [
+  {
+   "name": "clopidogrel",
+   "dose": 75,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "omeprazole",
+   "dose": 20,
+   "unit": "mg",
+   "doses_per_day": 1
+  }
+ ],
+ "N09": [
+  {
+   "name": "lorazepam",
+   "dose": 0.5,
+   "unit": "mg",
+   "doses_per_day": null
+  },
+  {
+   "name": "oxycodone",
+   "dose": 5,
+   "unit": "mg",
+   "doses_per_day": null
+  },
+  {
+   "name": "senna",
+   "dose": 8.6,
+   "unit": "mg",
+   "doses_per_day": 2
+  }
+ ],
+ "N10": [
+  {
+   "name": "spironolactone",
+   "dose": 25,
+   "unit": "mg",
+   "doses_per_day": 1
+  },
+  {
+   "name": "potassium chloride",
+   "dose": 20,
+   "unit": "meq",
+   "doses_per_day": 1
+  },
+  {
+   "name": "carvedilol",
+   "dose": 6.25,
+   "unit": "mg",
+   "doses_per_day": 2
+  }
+ ]
+}

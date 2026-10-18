@@ -1,0 +1,1123 @@
+[
+ {
+  "id": "C01",
+  "description": "Older adult with AF on warfarin, started ibuprofen and amiodarone",
+  "patient": {
+   "age": 80,
+   "egfr": 55,
+   "conditions": [
+    "atrial fibrillation"
+   ],
+   "medications": [
+    {
+     "name": "warfarin",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "ibuprofen",
+     "dose": 400,
+     "unit": "mg",
+     "doses_per_day": 3
+    },
+    {
+     "name": "amiodarone",
+     "dose": 200,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "ibuprofen",
+     "warfarin"
+    ]
+   },
+   {
+    "category": "interaction",
+    "drugs": [
+     "amiodarone",
+     "warfarin"
+    ]
+   },
+   {
+    "category": "beers",
+    "drugs": [
+     "ibuprofen"
+    ]
+   },
+   {
+    "category": "beers",
+    "drugs": [
+     "warfarin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C02",
+  "description": "Simvastatin with clarithromycin",
+  "patient": {
+   "age": 50,
+   "medications": [
+    {
+     "name": "Zocor",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "clarithromycin",
+     "dose": 500,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "clarithromycin",
+     "simvastatin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C03",
+  "description": "Appropriate regimen, middle-aged adult (negative control)",
+  "patient": {
+   "age": 55,
+   "egfr": 82,
+   "medications": [
+    {
+     "name": "lisinopril",
+     "dose": 10,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "metformin",
+     "dose": 500,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "atorvastatin",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": []
+ },
+ {
+  "id": "C04",
+  "description": "CKD stage 4 with metformin, gabapentin and naproxen",
+  "patient": {
+   "age": 70,
+   "egfr": 25,
+   "medications": [
+    {
+     "name": "metformin",
+     "dose": 1000,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "gabapentin",
+     "dose": 300,
+     "unit": "mg",
+     "doses_per_day": 3
+    },
+    {
+     "name": "naproxen",
+     "dose": 500,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "renal",
+    "drugs": [
+     "metformin"
+    ]
+   },
+   {
+    "category": "renal",
+    "drugs": [
+     "gabapentin"
+    ]
+   },
+   {
+    "category": "renal",
+    "drugs": [
+     "naproxen"
+    ]
+   },
+   {
+    "category": "beers",
+    "drugs": [
+     "naproxen"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C05",
+  "description": "Opioid with benzodiazepine",
+  "patient": {
+   "age": 45,
+   "medications": [
+    {
+     "name": "oxycodone",
+     "dose": 5,
+     "unit": "mg",
+     "prn": true
+    },
+    {
+     "name": "lorazepam",
+     "dose": 1,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "lorazepam",
+     "oxycodone"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C06",
+  "description": "Older adult with dementia on sleep aids and a bladder antimuscarinic",
+  "patient": {
+   "age": 82,
+   "conditions": [
+    "dementia"
+   ],
+   "medications": [
+    {
+     "name": "Benadryl",
+     "dose": 25,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "Ambien",
+     "dose": 10,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "oxybutynin",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "beers",
+    "drugs": [
+     "diphenhydramine"
+    ]
+   },
+   {
+    "category": "beers",
+    "drugs": [
+     "zolpidem"
+    ]
+   },
+   {
+    "category": "beers",
+    "drugs": [
+     "oxybutynin"
+    ]
+   },
+   {
+    "category": "anticholinergic",
+    "drugs": [
+     "diphenhydramine",
+     "oxybutynin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C07",
+  "description": "Penicillin allergy, prescribed amoxicillin-clavulanate",
+  "patient": {
+   "age": 34,
+   "allergies": [
+    "Penicillin (hives)"
+   ],
+   "medications": [
+    {
+     "name": "Augmentin",
+     "dose": 875,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "allergy",
+    "drugs": [
+     "amoxicillin-clavulanate"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C08",
+  "description": "Penicillin allergy, cefazolin for surgical prophylaxis",
+  "patient": {
+   "age": 61,
+   "allergies": [
+    "penicillin - rash as child"
+   ],
+   "medications": [
+    {
+     "name": "cefazolin",
+     "dose": 2,
+     "unit": "g",
+     "doses_per_day": 1,
+     "route": "iv"
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "allergy",
+    "drugs": [
+     "cefazolin"
+    ]
+   }
+  ],
+  "notes": "Expected at INFO level only: low cross-reactivity, clarify history."
+ },
+ {
+  "id": "C09",
+  "description": "Sulfa antibiotic allergy with furosemide (negative control)",
+  "patient": {
+   "age": 66,
+   "egfr": 60,
+   "allergies": [
+    "sulfa"
+   ],
+   "medications": [
+    {
+     "name": "furosemide",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": []
+ },
+ {
+  "id": "C10",
+  "description": "ACE inhibitor plus ARB",
+  "patient": {
+   "age": 58,
+   "egfr": 70,
+   "medications": [
+    {
+     "name": "lisinopril",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "losartan",
+     "dose": 50,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "lisinopril",
+     "losartan"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C11",
+  "description": "Triple whammy",
+  "patient": {
+   "age": 60,
+   "egfr": 65,
+   "medications": [
+    {
+     "name": "lisinopril",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "furosemide",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "ibuprofen",
+     "dose": 600,
+     "unit": "mg",
+     "doses_per_day": 3
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "furosemide",
+     "ibuprofen",
+     "lisinopril"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C12",
+  "description": "Heart failure on lisinopril, spironolactone and potassium",
+  "patient": {
+   "age": 63,
+   "egfr": 40,
+   "conditions": [
+    "heart failure"
+   ],
+   "medications": [
+    {
+     "name": "lisinopril",
+     "dose": 10,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "spironolactone",
+     "dose": 25,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "potassium chloride",
+     "dose": 20,
+     "unit": "mEq",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "potassium chloride",
+     "spironolactone"
+    ]
+   },
+   {
+    "category": "interaction",
+    "drugs": [
+     "lisinopril",
+     "spironolactone"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C13",
+  "description": "Two statins",
+  "patient": {
+   "age": 52,
+   "medications": [
+    {
+     "name": "atorvastatin",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "simvastatin",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "duplicate",
+    "drugs": [
+     "atorvastatin",
+     "simvastatin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C14",
+  "description": "Same drug ordered twice (tartrate and succinate)",
+  "patient": {
+   "age": 59,
+   "medications": [
+    {
+     "name": "metoprolol tartrate",
+     "dose": 25,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "Toprol XL",
+     "dose": 50,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "duplicate",
+    "drugs": [
+     "metoprolol"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C15",
+  "description": "Acetaminophen scheduled plus PRN; possible total exceeds 4 g",
+  "patient": {
+   "age": 47,
+   "medications": [
+    {
+     "name": "acetaminophen",
+     "dose": 1000,
+     "unit": "mg",
+     "doses_per_day": 4
+    },
+    {
+     "name": "Tylenol",
+     "dose": 650,
+     "unit": "mg",
+     "prn": true
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "duplicate",
+    "drugs": [
+     "acetaminophen"
+    ]
+   },
+   {
+    "category": "dose",
+    "drugs": [
+     "acetaminophen"
+    ]
+   }
+  ],
+  "notes": "Known gap: dose check counts scheduled doses only, so PRN doses that could exceed the max are not flagged."
+ },
+ {
+  "id": "C16",
+  "description": "Citalopram 40 mg in a 72-year-old",
+  "patient": {
+   "age": 72,
+   "medications": [
+    {
+     "name": "citalopram",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "dose",
+    "drugs": [
+     "citalopram"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C17",
+  "description": "Citalopram with ondansetron",
+  "patient": {
+   "age": 50,
+   "medications": [
+    {
+     "name": "citalopram",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "ondansetron",
+     "dose": 4,
+     "unit": "mg",
+     "doses_per_day": 3
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "citalopram",
+     "ondansetron"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C18",
+  "description": "Post-stent DAPT with omeprazole",
+  "patient": {
+   "age": 61,
+   "medications": [
+    {
+     "name": "aspirin",
+     "dose": 81,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "Plavix",
+     "dose": 75,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "Prilosec",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "clopidogrel",
+     "omeprazole"
+    ]
+   },
+   {
+    "category": "duplicate",
+    "drugs": [
+     "aspirin",
+     "clopidogrel"
+    ]
+   }
+  ],
+  "notes": "The antiplatelet duplicate is expected at MINOR (verify intent), since DAPT is usually deliberate."
+ },
+ {
+  "id": "C19",
+  "description": "PDE5 inhibitor with a nitrate",
+  "patient": {
+   "age": 67,
+   "medications": [
+    {
+     "name": "sildenafil",
+     "dose": 50,
+     "unit": "mg",
+     "prn": true
+    },
+    {
+     "name": "Imdur",
+     "dose": 30,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "isosorbide mononitrate",
+     "sildenafil"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C20",
+  "description": "Lithium with HCTZ and ibuprofen",
+  "patient": {
+   "age": 40,
+   "medications": [
+    {
+     "name": "lithium",
+     "dose": 300,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "hydrochlorothiazide",
+     "dose": 25,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "ibuprofen",
+     "dose": 400,
+     "unit": "mg",
+     "doses_per_day": 3
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "hydrochlorothiazide",
+     "lithium"
+    ]
+   },
+   {
+    "category": "interaction",
+    "drugs": [
+     "ibuprofen",
+     "lithium"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C21",
+  "description": "Discharge reconciliation: warfarin dropped, metoprolol dose changed, new antibiotic",
+  "patient": {
+   "age": 74,
+   "egfr": 62,
+   "home_medications": [
+    {
+     "name": "warfarin",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "metoprolol",
+     "dose": 25,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "atorvastatin",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ],
+   "medications": [
+    {
+     "name": "metoprolol",
+     "dose": 50,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "atorvastatin",
+     "dose": 40,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "cephalexin",
+     "dose": 500,
+     "unit": "mg",
+     "doses_per_day": 4
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "reconciliation",
+    "drugs": [
+     "warfarin"
+    ]
+   },
+   {
+    "category": "reconciliation",
+    "drugs": [
+     "metoprolol"
+    ]
+   },
+   {
+    "category": "reconciliation",
+    "drugs": [
+     "cephalexin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C22",
+  "description": "Reconciliation with a documented intentional stop",
+  "patient": {
+   "age": 69,
+   "egfr": 70,
+   "intentionally_stopped": [
+    "ibuprofen"
+   ],
+   "home_medications": [
+    {
+     "name": "ibuprofen",
+     "dose": 400,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ],
+   "medications": [
+    {
+     "name": "apixaban",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "reconciliation",
+    "drugs": [
+     "apixaban"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C23",
+  "description": "Glyburide in an older adult with CKD stage 3",
+  "patient": {
+   "age": 76,
+   "egfr": 50,
+   "medications": [
+    {
+     "name": "glyburide",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "beers",
+    "drugs": [
+     "glyburide"
+    ]
+   },
+   {
+    "category": "renal",
+    "drugs": [
+     "glyburide"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C24",
+  "description": "Digoxin 0.25 mg with amiodarone in a 78-year-old",
+  "patient": {
+   "age": 78,
+   "egfr": 60,
+   "medications": [
+    {
+     "name": "digoxin",
+     "dose": 0.25,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "amiodarone",
+     "dose": 200,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "beers",
+    "drugs": [
+     "digoxin"
+    ]
+   },
+   {
+    "category": "interaction",
+    "drugs": [
+     "amiodarone",
+     "digoxin"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C25",
+  "description": "Warfarin with ciprofloxacin",
+  "patient": {
+   "age": 60,
+   "medications": [
+    {
+     "name": "warfarin",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "Cipro",
+     "dose": 500,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "ciprofloxacin",
+     "warfarin"
+    ]
+   }
+  ],
+  "notes": "Known gap: fluoroquinolone-warfarin INR elevation is not in the curated interaction table."
+ },
+ {
+  "id": "C26",
+  "description": "Allopurinol with azathioprine",
+  "patient": {
+   "age": 44,
+   "medications": [
+    {
+     "name": "allopurinol",
+     "dose": 300,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "azathioprine",
+     "dose": 100,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "allopurinol",
+     "azathioprine"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C27",
+  "description": "Tramadol with sertraline",
+  "patient": {
+   "age": 30,
+   "medications": [
+    {
+     "name": "tramadol",
+     "dose": 50,
+     "unit": "mg",
+     "doses_per_day": 4
+    },
+    {
+     "name": "Zoloft",
+     "dose": 100,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "sertraline",
+     "tramadol"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C28",
+  "description": "Benzodiazepine in an older adult with falls",
+  "patient": {
+   "age": 75,
+   "conditions": [
+    "history of falls"
+   ],
+   "medications": [
+    {
+     "name": "lorazepam",
+     "dose": 0.5,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "beers",
+    "drugs": [
+     "lorazepam"
+    ]
+   }
+  ],
+  "notes": "Both the general and the falls-specific Beers rule fire on lorazepam; they share one evaluation key."
+ },
+ {
+  "id": "C29",
+  "description": "Methotrexate ordered daily with TMP-SMX",
+  "patient": {
+   "age": 57,
+   "medications": [
+    {
+     "name": "methotrexate",
+     "dose": 10,
+     "unit": "mg",
+     "doses_per_day": 1,
+     "route": "oral"
+    },
+    {
+     "name": "Bactrim",
+     "dose": 800,
+     "unit": "mg",
+     "doses_per_day": 2
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "dose",
+    "drugs": [
+     "methotrexate"
+    ]
+   },
+   {
+    "category": "interaction",
+    "drugs": [
+     "methotrexate",
+     "sulfamethoxazole-trimethoprim"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C30",
+  "description": "Linezolid with escitalopram",
+  "patient": {
+   "age": 39,
+   "medications": [
+    {
+     "name": "linezolid",
+     "dose": 600,
+     "unit": "mg",
+     "doses_per_day": 2
+    },
+    {
+     "name": "Lexapro",
+     "dose": 10,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": [
+   {
+    "category": "interaction",
+    "drugs": [
+     "escitalopram",
+     "linezolid"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "C31",
+  "description": "Healthy older adult on low-risk regimen (negative control)",
+  "patient": {
+   "age": 72,
+   "egfr": 75,
+   "medications": [
+    {
+     "name": "amlodipine",
+     "dose": 5,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "atorvastatin",
+     "dose": 20,
+     "unit": "mg",
+     "doses_per_day": 1
+    },
+    {
+     "name": "levothyroxine",
+     "dose": 75,
+     "unit": "mcg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": []
+ },
+ {
+  "id": "C32",
+  "description": "Methotrexate weekly (correct) with folic acid (negative control)",
+  "patient": {
+   "age": 52,
+   "medications": [
+    {
+     "name": "methotrexate",
+     "dose": 15,
+     "unit": "mg",
+     "doses_per_day": 0.142857,
+     "route": "oral"
+    },
+    {
+     "name": "folic acid",
+     "dose": 1,
+     "unit": "mg",
+     "doses_per_day": 1
+    }
+   ]
+  },
+  "expected": []
+ }
+]

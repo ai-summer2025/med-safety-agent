@@ -1,0 +1,5 @@
+Medications at discharge
+* warfarin 5 mg PO qPM
+* amiodarone 200 mg PO daily
+* furosemide 20 mg PO BID
+STOPPED: digoxin 0.125 mg daily
