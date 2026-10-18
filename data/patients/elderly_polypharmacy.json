@@ -1,0 +1,18 @@
+{
+  "id": "synthetic-001",
+  "age": 81,
+  "sex": "F",
+  "egfr": 28,
+  "conditions": ["atrial fibrillation", "heart failure", "dementia", "osteoarthritis"],
+  "allergies": ["sulfa"],
+  "medications": [
+    {"name": "warfarin", "dose": 5, "unit": "mg", "doses_per_day": 1},
+    {"name": "amiodarone", "dose": 200, "unit": "mg", "doses_per_day": 1},
+    {"name": "Lasix", "dose": 40, "unit": "mg", "doses_per_day": 1},
+    {"name": "lisinopril", "dose": 10, "unit": "mg", "doses_per_day": 1},
+    {"name": "naproxen", "dose": 500, "unit": "mg", "doses_per_day": 2},
+    {"name": "digoxin", "dose": 0.25, "unit": "mg", "doses_per_day": 1},
+    {"name": "Benadryl", "dose": 25, "unit": "mg", "doses_per_day": 1},
+    {"name": "gabapentin", "dose": 300, "unit": "mg", "doses_per_day": 3}
+  ]
+}
