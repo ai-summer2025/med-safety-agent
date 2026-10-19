@@ -1,12 +1,9 @@
 __pycache__/
 *.py[cod]
-*$py.class
 *.egg-info/
-dist/
-build/
-.env
-.venv
-venv/
-*.log
 .pytest_cache/
-.DS_Store
+.ruff_cache/
+.venv/
+build/
+dist/
+.env

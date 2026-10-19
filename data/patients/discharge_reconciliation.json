@@ -1,0 +1,20 @@
+{
+  "id": "synthetic-002",
+  "age": 68,
+  "egfr": 58,
+  "conditions": ["type 2 diabetes", "CAD s/p stent"],
+  "allergies": ["penicillin"],
+  "intentionally_stopped": ["ibuprofen"],
+  "home_medications": [
+    {"name": "metformin", "dose": 1000, "unit": "mg", "doses_per_day": 2},
+    {"name": "insulin glargine", "dose": 20, "unit": "units", "doses_per_day": 1},
+    {"name": "clopidogrel", "dose": 75, "unit": "mg", "doses_per_day": 1},
+    {"name": "ibuprofen", "dose": 400, "unit": "mg", "doses_per_day": 2}
+  ],
+  "medications": [
+    {"name": "metformin", "dose": 500, "unit": "mg", "doses_per_day": 2},
+    {"name": "clopidogrel", "dose": 75, "unit": "mg", "doses_per_day": 1},
+    {"name": "omeprazole", "dose": 20, "unit": "mg", "doses_per_day": 1},
+    {"name": "Augmentin", "dose": 875, "unit": "mg", "doses_per_day": 2}
+  ]
+}
