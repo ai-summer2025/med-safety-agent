@@ -372,3 +372,8 @@ ALLERGY_SOURCE = "Drug-allergy and cross-reactivity guidance (FDA-LABEL; AAAAI/A
 # Home meds whose unintended omission at transition is high risk
 HIGH_RISK_OMISSION_CLASSES = {"anticoagulant", "insulin", "antiepileptic"}
 HIGH_RISK_OMISSION_DRUGS = {"levothyroxine", "clopidogrel", "prasugrel", "ticagrelor"}
+
+# BEERS 2023 criteria alignment: rules flagged with beers=True correspond to
+# medications the American Geriatrics Society identifies as potentially inappropriate
+# in adults >= 65 years. The agent raises a BEERS warning when patient age >= 65
+# and a listed drug is detected, independent of the interaction severity tier.
