@@ -235,3 +235,8 @@ ALL_CHECKS = [
     check_interactions, check_duplicates, check_beers, check_renal,
     check_anticholinergic_burden, check_doses, check_allergies, check_reconciliation,
 ]
+
+# Maximum number of interaction pairs reported per run.
+# When a patient is on > 15 medications the pair count can exceed 100;
+# cap the report at the highest-severity pairs to keep output actionable.
+MAX_INTERACTION_PAIRS: int = 25
