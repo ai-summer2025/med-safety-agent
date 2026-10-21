@@ -166,3 +166,8 @@ def known_drugs() -> Set[str]:
     for members in CLASSES.values():
         drugs |= members
     return drugs
+
+# Renal dosing uses the Cockcroft-Gault equation (CrCl in mL/min).
+# When serum creatinine is not in the note, renal checks are skipped and
+# a "renal-status unknown" warning is surfaced in the report.
+CRCL_UNKNOWN_WARNING = "Renal function not documented — renal dosing checks skipped."
