@@ -114,6 +114,18 @@ def test_duplicates_intentional_classes_are_minor():
     assert f[0].severity is Severity.MINOR
 
 
+def test_two_p2y12_inhibitors_are_major_but_dapt_is_minor():
+    dapt = {f.rule_id: f.severity for f in check_duplicates(Patient("p", 60, medications=[med("aspirin"),
+                                                                                        med("clopidogrel")]))}
+    assert dapt == {"DUP-CLASS-ANTIPLATELET": Severity.MINOR}
+    both = {f.rule_id: f.severity for f in check_duplicates(Patient("p", 60, medications=[med("clopidogrel"),
+                                                                                        med("prasugrel")]))}
+    assert both == {"DUP-CLASS-P2Y12_INHIBITOR": Severity.MAJOR}  # the minor antiplatelet duplicate is dropped
+    triple = {f.rule_id for f in check_duplicates(Patient("p", 60, medications=[
+        med("aspirin"), med("clopidogrel"), med("prasugrel")]))}
+    assert triple == {"DUP-CLASS-P2Y12_INHIBITOR", "DUP-CLASS-ANTIPLATELET"}  # aspirin is not covered by the major
+
+
 def test_reconciliation_omission_and_documented_stop():
     p = Patient("p", 70, medications=[med("metoprolol", 50, per_day=2)],
                 home_medications=[med("warfarin", 5), med("metoprolol", 25, per_day=2), med("ibuprofen", 400)],
