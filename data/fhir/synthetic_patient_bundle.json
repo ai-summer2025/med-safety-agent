@@ -1,0 +1,758 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "tag": [
+   {
+    "display": "SYNTHETIC test patient, not real data"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000001",
+   "resource": {
+    "resourceType": "Patient",
+    "birthDate": "1946-03-14",
+    "gender": "female",
+    "name": [
+     {
+      "family": "Example",
+      "given": [
+       "Synthetic"
+      ]
+     }
+    ],
+    "id": "00000000-0000-4000-8000-000000000001"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000010",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 1,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "warfarin sodium 5 MG Oral Tablet",
+       "code": "855332"
+      }
+     ],
+     "text": "warfarin sodium 5 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000010"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000111",
+   "resource": {
+    "resourceType": "Medication",
+    "code": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "Acetaminophen 325 MG / Oxycodone Hydrochloride 10 MG Oral Tablet [Percocet]",
+       "code": "1049625"
+      }
+     ],
+     "text": "Acetaminophen 325 MG / Oxycodone Hydrochloride 10 MG Oral Tablet [Percocet]"
+    },
+    "id": "00000000-0000-4000-8000-000000000111"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000011",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "asNeededBoolean": true,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationReference": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000111"
+    },
+    "id": "00000000-0000-4000-8000-000000000011"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000012",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 4,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 2
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet",
+       "code": "856987"
+      }
+     ],
+     "text": "Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000012"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000013",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 2,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]",
+       "code": "106892"
+      }
+     ],
+     "text": "insulin isophane, human 70 UNT/ML / insulin, regular, human 30 UNT/ML Injectable Suspension [Humulin]"
+    },
+    "id": "00000000-0000-4000-8000-000000000013"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000014",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 1,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "Clopidogrel 75 MG Oral Tablet",
+       "code": "309362"
+      }
+     ],
+     "text": "Clopidogrel 75 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000014"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000015",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 1,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "prasugrel 10 MG Oral Tablet",
+       "code": "855812"
+      }
+     ],
+     "text": "prasugrel 10 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000015"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000016",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 1,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 2
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+       "code": "860975"
+      }
+     ],
+     "text": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000016"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000017",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "asNeededBoolean": true,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "diphenhydrAMINE Hydrochloride 25 MG Oral Tablet",
+       "code": "1049630"
+      }
+     ],
+     "text": "diphenhydrAMINE Hydrochloride 25 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000017"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000018",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "completed",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 1,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "Simvastatin 20 MG Oral Tablet",
+       "code": "312961"
+      }
+     ],
+     "text": "Simvastatin 20 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000018"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000019",
+   "resource": {
+    "resourceType": "MedicationRequest",
+    "status": "active",
+    "intent": "order",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "authoredOn": "2026-05-02",
+    "dosageInstruction": [
+     {
+      "sequence": 1,
+      "timing": {
+       "repeat": {
+        "frequency": 3,
+        "period": 1.0,
+        "periodUnit": "d"
+       }
+      },
+      "asNeededBoolean": false,
+      "doseAndRate": [
+       {
+        "doseQuantity": {
+         "value": 1
+        }
+       }
+      ]
+     }
+    ],
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "display": "Ibuprofen 400 MG Oral Tablet",
+       "code": "197806"
+      }
+     ],
+     "text": "Ibuprofen 400 MG Oral Tablet"
+    },
+    "id": "00000000-0000-4000-8000-000000000019",
+    "doNotPerform": true
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000020",
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "code": "11289",
+       "display": "warfarin"
+      }
+     ]
+    },
+    "id": "00000000-0000-4000-8000-000000000020"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000021",
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "active",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "code": "10582",
+       "display": "levothyroxine"
+      }
+     ]
+    },
+    "id": "00000000-0000-4000-8000-000000000021"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000022",
+   "resource": {
+    "resourceType": "MedicationStatement",
+    "status": "stopped",
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "medicationCodeableConcept": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "code": "7258",
+       "display": "naproxen"
+      }
+     ]
+    },
+    "id": "00000000-0000-4000-8000-000000000022"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000030",
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "clinicalStatus": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+       "code": "active"
+      }
+     ]
+    },
+    "verificationStatus": {
+     "coding": [
+      {
+       "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+       "code": "confirmed"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "code": "7984",
+       "display": "Penicillin V"
+      }
+     ]
+    },
+    "patient": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "id": "00000000-0000-4000-8000-000000000030"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000031",
+   "resource": {
+    "resourceType": "AllergyIntolerance",
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    },
+    "verificationStatus": {
+     "coding": [
+      {
+       "code": "refuted"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+       "code": "1191",
+       "display": "Aspirin"
+      }
+     ]
+    },
+    "patient": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "id": "00000000-0000-4000-8000-000000000031"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000040",
+   "resource": {
+    "resourceType": "Condition",
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    },
+    "verificationStatus": {
+     "coding": [
+      {
+       "code": "confirmed"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://snomed.info/sct",
+       "code": "26929004",
+       "display": "Alzheimer's disease (disorder)"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "id": "00000000-0000-4000-8000-000000000040"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000041",
+   "resource": {
+    "resourceType": "Condition",
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    },
+    "verificationStatus": {
+     "coding": [
+      {
+       "code": "confirmed"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://snomed.info/sct",
+       "code": "431857002",
+       "display": "Chronic kidney disease stage 4 (disorder)"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "id": "00000000-0000-4000-8000-000000000041"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000042",
+   "resource": {
+    "resourceType": "Condition",
+    "clinicalStatus": {
+     "coding": [
+      {
+       "code": "active"
+      }
+     ]
+    },
+    "verificationStatus": {
+     "coding": [
+      {
+       "code": "entered-in-error"
+      }
+     ]
+    },
+    "code": {
+     "coding": [
+      {
+       "system": "http://snomed.info/sct",
+       "code": "88805009",
+       "display": "Chronic congestive heart failure (disorder)"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "id": "00000000-0000-4000-8000-000000000042"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000050",
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "33914-3",
+       "display": "eGFR"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "effectiveDateTime": "2025-11-03T09:00:00Z",
+    "valueQuantity": {
+     "value": 52.0,
+     "unit": "mL/min/{1.73_m2}",
+     "system": "http://unitsofmeasure.org",
+     "code": "mL/min/{1.73_m2}"
+    },
+    "id": "00000000-0000-4000-8000-000000000050"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000051",
+   "resource": {
+    "resourceType": "Observation",
+    "status": "final",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "98979-8",
+       "display": "eGFR"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "effectiveDateTime": "2026-05-20T09:00:00Z",
+    "valueQuantity": {
+     "value": 27.0,
+     "unit": "mL/min/{1.73_m2}",
+     "system": "http://unitsofmeasure.org",
+     "code": "mL/min/{1.73_m2}"
+    },
+    "id": "00000000-0000-4000-8000-000000000051"
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:00000000-0000-4000-8000-000000000052",
+   "resource": {
+    "resourceType": "Observation",
+    "status": "preliminary",
+    "code": {
+     "coding": [
+      {
+       "system": "http://loinc.org",
+       "code": "98979-8",
+       "display": "eGFR"
+      }
+     ]
+    },
+    "subject": {
+     "reference": "urn:uuid:00000000-0000-4000-8000-000000000001"
+    },
+    "effectiveDateTime": "2026-05-28T09:00:00Z",
+    "valueQuantity": {
+     "value": 60.0,
+     "unit": "mL/min/{1.73_m2}",
+     "system": "http://unitsofmeasure.org",
+     "code": "mL/min/{1.73_m2}"
+    },
+    "id": "00000000-0000-4000-8000-000000000052"
+   }
+  }
+ ]
+}
