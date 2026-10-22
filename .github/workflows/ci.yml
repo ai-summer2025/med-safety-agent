@@ -7,8 +7,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Pinned: the ubuntu-26.04 image behind ubuntu-latest has no Python 3.9 for setup-python.
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
