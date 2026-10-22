@@ -90,6 +90,54 @@ medsafe extract data/notes/discharge_summary.txt --llm
 
 For real patient data, use a local model or a provider covered by a BAA; with a hosted API the note text leaves your machine. There are no SDK dependencies: the clients in [`llm.py`](src/medsafe/llm.py) use the standard library.
 
+## FHIR R4 and CDS Hooks
+
+medsafe can read FHIR R4 data directly and run inside an EHR as a [CDS Hooks 2.0](https://cds-hooks.hl7.org/STU2/) service. The checks are the same; only the input and output change.
+
+```
+ EHR ── order-sign / patient-view ──► medsafe-cds ──► FHIR adapter ──► checks ──► CDS cards
+        (prefetch, or FHIR reads                     (status rules,                (only the new order's
+         with the hook's access token)                RxNorm, eGFR)                 problems on order-sign)
+```
+
+**What it reads** (US Core shaped): `Patient`, `MedicationRequest`, `MedicationStatement` (home list, patient-view), `AllergyIntolerance`, `Condition`, and eGFR `Observation`s (LOINC 98979-8, 62238-1, 33914-3, 48642-3, 48643-1).
+
+**Rules applied before any check runs**, all listed in the report's "Data used" section:
+
+- Only `active` orders with intent `order`/`plan`; `doNotPerform`, completed, stopped and entered-in-error orders are ignored
+- Refuted or entered-in-error allergies and resolved or inactive conditions are ignored
+- eGFR: most recent `final`/`amended`/`corrected` result within 90 days (configurable); a `<15` result counts as below 15
+- Medications resolve by RxNorm code first (a 200-ingredient table verified against NLM RxNav), then by parsing the RxNorm name: `Acetaminophen 325 MG / Oxycodone Hydrochloride 10 MG Oral Tablet [Percocet]` gives two ingredients with strengths, so a tablet count becomes a mg dose
+- Anything that does not resolve is reported as not checked, never silently passed
+
+**Command line:**
+
+```bash
+medsafe fhir data/fhir/synthetic_patient_bundle.json --as-of 2026-06-01
+medsafe fhir bundle.json --format detectedissue > issues.json   # FHIR DetectedIssue resources
+```
+
+**CDS Hooks service:**
+
+```bash
+pip install -e ".[service]"
+MEDSAFE_TRUSTED_ISSUERS='{"https://ehr.example.org": "https://ehr.example.org/.well-known/jwks.json"}' medsafe-cds
+curl localhost:8080/cds-services
+```
+
+- `medsafe-order-sign` returns cards only for problems that involve the draft order. A contraindicated or major card offers a one-click "remove draft order" suggestion and structured override reasons
+- `medsafe-patient-view` reviews the whole list, including reconciliation against `MedicationStatement`s
+- Lower-priority findings are folded into a single summary card, to limit alert fatigue
+- Missing prefetch is fetched with the hook's `fhirAuthorization`; if the patient or medications cannot be obtained the service returns HTTP 412
+- Requests must carry a JWT signed by a trusted issuer (ES/RS/PS algorithms only, `aud` = service URL, 5-minute lifetime, replay protection). `MEDSAFE_AUTH=disabled` is for local testing only
+- The feedback endpoint and every issued card are written to an audit log keyed by `hookInstance`, with no patient identifiers
+
+**How it was tested:**
+
+- Parity: each of the 32 evaluation cases is converted to a FHIR bundle in two coding styles (ingredient codes with mg doses; product names with tablet counts). Both give findings identical to the direct input, 64/64, and CI enforces it.
+- Robustness: [`scripts/synthea_smoke.py`](scripts/synthea_smoke.py) over the 104 R4 patients in [synthea-sample-data](https://github.com/synthetichealth/synthea-sample-data) loads every bundle with no errors. The only medications that do not resolve are multi-product packs (oral contraceptives), injectables and inhalers without a mg strength per unit.
+- Not yet tested against a live EHR or a CDS Hooks sandbox.
+
 ## Evaluation
 
 `python eval/run_eval.py` regenerates [`eval/RESULTS.md`](eval/RESULTS.md). CI fails if results drop below [`eval/baseline.json`](eval/baseline.json).
@@ -111,11 +159,15 @@ Read these numbers for what they are. I wrote both the rules and the expected la
 | Regex baseline | 0.95 | 0.67 | 0.78 | 0.67 |
 | LLM + grounding | run `python eval/run_eval.py --llm` | | | |
 
+**FHIR parity:** 64/64 (32 cases × 2 coding styles) give identical findings through the FHIR adapter.
+
 The regex baseline fails on narrative notes (sentences, "stopped", "hold", semicolon-separated lists). The LLM row is left for you to run with your own credentials rather than reporting numbers I did not produce here.
 
 ## Limitations
 
-- **Small vocabulary.** About 180 generic drugs and 130 brand names, hand-curated. Drugs outside it are listed under "Not in vocabulary (not checked)", never silently passed. RxNorm normalization is on the roadmap.
+- **Small vocabulary.** About 200 ingredients and 130 brand names, hand-curated, with RxNorm codes for the ingredients. Drugs outside it are listed as "not checked", never silently passed.
+- **Condition coding.** SNOMED CT codes cover only the conditions seen in Synthea data; ICD-10-CM is matched by prefix, and free text is a fallback. A site using other codes needs to extend `fhir/terminology.py`.
+- **Not tested in a live EHR.** The CDS Hooks service has unit tests for the protocol and security rules, but has not been run against Epic, Oracle Health or a public sandbox.
 - **Curated, not comprehensive.** The interaction table covers high-yield, well-documented combinations. It is not a replacement for a commercial interaction database.
 - **eGFR stands in for creatinine clearance.** Several label thresholds are defined by Cockcroft-Gault CrCl.
 - **No indication or duration data.** Rules that depend on why or for how long a drug is used (e.g. PPI beyond 8 weeks, aspirin for primary prevention) are not implemented.
@@ -123,9 +175,9 @@ The regex baseline fails on narrative notes (sentences, "stopped", "hold", semic
 
 ## Roadmap
 
-- Accept FHIR R4 `MedicationRequest` / `MedicationStatement` bundles as input
-- Serve the checks as a [CDS Hooks](https://cds-hooks.org/) `order-sign` service and test it in the SMART sandbox with Synthea patients
-- Normalize names through RxNorm (RxNav `rxcui` lookup) and enlarge the vocabulary
+- Run the CDS Hooks service in a public sandbox with Synthea patients and record a demo
+- Resolve SCD/SBD codes through RxNav `related.json` at build time, instead of name parsing
+- Use dosage `maxDosePerPeriod` and PRN maximums in the daily-dose check
 - Independent, pharmacist-labeled evaluation set
 - Report LLM extraction results for a hosted and a local model
 

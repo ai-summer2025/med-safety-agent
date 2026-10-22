@@ -4,4 +4,4 @@ from .pipeline import Report, load_patient, patient_from_dict, run
 
 __all__ = ["Finding", "Medication", "Patient", "Severity", "Report", "run",
            "load_patient", "patient_from_dict"]
-__version__ = "1.0.0"
+__version__ = "1.1.0"
