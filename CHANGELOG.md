@@ -12,3 +12,10 @@ Consolidates eight earlier prototypes into one package.
 - Unknown drugs are reported as "not checked" instead of silently passing
 - Evaluation harness with 32 labeled cases and 10 labeled notes; CI fails on regression
 - GitHub Actions on Python 3.9-3.13, ruff, Dockerfile
+
+## [1.1.0] — 2026-10-21
+
+### Added
+- `MAX_INTERACTION_PAIRS` cap for patients on > 15 medications
+- BEERS 2023 alignment note in knowledge rules
+- `CRCL_UNKNOWN_WARNING` for notes missing creatinine values
