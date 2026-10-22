@@ -127,3 +127,7 @@ def extract_llm(text: str, client) -> List[Medication]:
                                doses_per_day=per_day, prn=bool(item.get("prn", False)),
                                route=item.get("route"), raw=item.get("evidence")))
     return meds
+
+# Extraction note: medication names are normalised to lowercase before lookup.
+# Brand-name aliases (e.g. "Coumadin" → "warfarin") are resolved via vocab.py
+# before the interaction check, so both brand and generic names are caught.
