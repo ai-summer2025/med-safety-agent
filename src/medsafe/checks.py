@@ -72,7 +72,11 @@ def check_duplicates(patient: Patient) -> List[Finding]:
                 "Verify this combination is intended and documented." if intentional
                 else "Likely therapeutic duplication; confirm and keep one agent.",
                 "Therapeutic duplication check"))
-    return findings
+    # A more specific major duplicate (e.g. two P2Y12 inhibitors) makes the broad minor one redundant.
+    majors = [set(f.drugs) for f in findings if f.rule_id.startswith("DUP-CLASS-") and f.severity is Severity.MAJOR]
+    return [f for f in findings
+            if not (f.rule_id.startswith("DUP-CLASS-") and f.severity is Severity.MINOR
+                    and any(set(f.drugs) <= m for m in majors))]
 
 
 def check_beers(patient: Patient) -> List[Finding]:

@@ -7,8 +7,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Pinned: the ubuntu-26.04 image behind ubuntu-latest has no Python 3.9 for setup-python.
+    runs-on: ubuntu-24.04
     strategy:
+      fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
@@ -17,7 +19,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -e ".[dev]"
-      - run: ruff check src tests eval
+      - run: ruff check src tests eval scripts
       - run: pytest -q
       - name: Evaluation (fails on regression)
         run: python eval/run_eval.py --check
