@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pip install -e ".[dev]"
-      - run: ruff check src tests eval
+      - run: ruff check src tests eval scripts
       - run: pytest -q
       - name: Evaluation (fails on regression)
         run: python eval/run_eval.py --check

@@ -1,11 +1,14 @@
 """Evaluate medsafe against hand-labeled synthetic cases.
 
-Two evaluations:
+Three evaluations:
 
 1. Checks: 32 patient cases in eval/cases.json, each with the findings a
    reviewer would expect, keyed by (category, drugs). Severity is not scored.
 2. Extraction: 10 free-text notes in eval/notes/ with gold medication lists.
    Compares the regex baseline with the LLM extractor (when --llm is given).
+3. FHIR parity: every case is converted to a FHIR R4 bundle in two coding
+   styles (RxNorm ingredient codes with mass doses; product names with
+   tablet counts) and must give exactly the same findings as direct input.
 
 Usage:
   python eval/run_eval.py                 # checks + rules extraction, writes eval/RESULTS.md
@@ -23,7 +26,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "src"))
 
+from fhir_parity import AS_OF, case_to_bundle  # noqa: E402
+
 from medsafe.extract import extract_llm, extract_rules  # noqa: E402
+from medsafe.fhir import patient_from_fhir, run_fhir  # noqa: E402
 from medsafe.pipeline import patient_from_dict, run  # noqa: E402
 
 
@@ -52,6 +58,21 @@ def eval_checks():
             misses.append((case["id"], k, case.get("notes", "")))
     tot = [sum(v[i] for v in per_cat.values()) for i in range(3)]
     return len(cases), per_cat, tot, misses, extras
+
+
+def eval_fhir_parity():
+    cases = json.loads((ROOT / "cases.json").read_text())
+    results = {}
+    for style, product in (("ingredient codes", False), ("product names", True)):
+        diffs = []
+        for case in cases:
+            key = lambda fs: {(f.rule_id, tuple(sorted(f.drugs)), f.severity.value) for f in fs}  # noqa: E731
+            direct = key(run(patient_from_dict({"id": case["id"], **case["patient"]})).findings)
+            via = key(run_fhir(patient_from_fhir([case_to_bundle(case, product)], as_of=AS_OF)).findings)
+            if via != direct:
+                diffs.append((case["id"], sorted(direct - via), sorted(via - direct)))
+        results[style] = (len(cases) - len(diffs), len(cases), diffs)
+    return results
 
 
 def _match_meds(pred, gold):
@@ -105,6 +126,15 @@ def main() -> int:
     out += [f"- {cid}: {k[0]} {list(k[1])}. {note}" for cid, k, note in misses] or ["- none"]
     out += ["", "### Unexpected (false positives)", ""]
     out += [f"- {cid}: {k[0]} {list(k[1])}" for cid, k in extras] or ["- none"]
+    parity = eval_fhir_parity()
+    out += ["", "## FHIR parity", "",
+            "Each case converted to a FHIR R4 bundle and run through the FHIR adapter; "
+            "findings must equal the direct-input findings exactly (rule, drugs, severity).", "",
+            "| Coding style | Identical | Cases |", "|---|---|---|"]
+    for style, (same, total, _) in parity.items():
+        out.append(f"| {style} | {same} | {total} |")
+    for style, (_, _, diffs) in parity.items():
+        out += [f"- {style} / {cid}: missing {miss}, extra {extra}" for cid, miss, extra in diffs]
     out += ["", "## Medication extraction (10 notes)", "",
             "| Method | Precision | Recall | F1 | Exact dose+unit+frequency |", "|---|---|---|---|---|"]
     for method, m in ext.items():
@@ -118,7 +148,8 @@ def main() -> int:
     if args.check:
         base = json.loads((ROOT / "baseline.json").read_text())
         ok = p >= base["checks_precision"] and r >= base["checks_recall"] \
-            and ext["rules"]["f1"] >= base["rules_extraction_f1"]
+            and ext["rules"]["f1"] >= base["rules_extraction_f1"] \
+            and all(same == total for same, total, _ in parity.values())
         if not ok:
             print("\nREGRESSION: metrics fell below eval/baseline.json", file=sys.stderr)
             return 1
