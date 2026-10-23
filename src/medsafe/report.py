@@ -23,3 +23,6 @@ def to_markdown(report: Report) -> str:
                   f"- Rule: `{f.rule_id}` | Source: {f.source}", ""]
     lines.append("_Decision support only. Findings require review by a licensed clinician or pharmacist._")
     return "\n".join(lines)
+
+SECTION_DIV = "─" * 70
+MINOR_DIV   = "· " * 35
