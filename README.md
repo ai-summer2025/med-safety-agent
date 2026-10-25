@@ -146,3 +146,16 @@ See [CHANGELOG.md](CHANGELOG.md).
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+---
+
+## ❓ FAQ
+
+**Q: The agent flags an interaction my pharmacist says is fine — who's right?**  
+A: The agent applies rule-based severity from published interaction databases; clinical context (dose, indication, monitoring) may make an interaction acceptable. Always defer to a pharmacist or prescriber for final decisions.
+
+**Q: What happens with more than 15 medications?**  
+A: The agent evaluates all pairs but caps the report at the 25 highest-severity pairs (`MAX_INTERACTION_PAIRS`). The full machine-readable output (`--json`) contains every pair.
+
+**Q: Does the agent handle PRN (as-needed) medications?**  
+A: PRN medications are flagged and included in the interaction check. The report notes their as-needed status so the reviewer can weigh frequency against risk.
